@@ -947,6 +947,10 @@ def matches_word_groups(
     # 如果没有配置词组，则匹配所有标题（支持显示全部新闻）
     if not word_groups:
         return True
+    # 确保 title 是字符串类型
+    if not isinstance(title, str):
+        # 如果是浮点数或其他类型，转换为字符串
+        title = str(title)
 
     title_lower = title.lower()
 
@@ -1146,6 +1150,10 @@ def count_word_frequency(
             source_ranks = title_data.get("ranks", [])
             source_url = title_data.get("url", "")
             source_mobile_url = title_data.get("mobileUrl", "")
+    # 确保 title 是字符串类型
+    if not isinstance(title, str):
+        # 如果是浮点数或其他类型，转换为字符串
+        title = str(title)
 
             # 找到匹配的词组
             title_lower = title.lower()
